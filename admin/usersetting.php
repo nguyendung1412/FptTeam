@@ -65,10 +65,6 @@ ob_start();
                     <li>
                         <a class="active-menu" href="settings.php"><i class="fa fa-dashboard"></i> Bảng thông tin </a>
                     </li>
-					
-					
-
-                    
             </div>
 
         </nav>
@@ -83,8 +79,6 @@ ob_start();
                         </h1>
                     </div>
                 </div> 
-                 
-                                 
             <?php
 						include ('db.php');
 						$sql = "SELECT * FROM `login`";
@@ -203,8 +197,6 @@ ob_start();
 							if(mysqli_query($con,$newsql))
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("User name and password Added") </script>';
-							
-						
 							}
 						header("Location: usersetting.php");
 						}
@@ -258,22 +250,11 @@ ob_start();
 					if(mysqli_query($con,$upsql))
 					{
 					echo' <script language="javascript" type="text/javascript"> alert("User name and password update") </script>';
-					
-				
 					}
-				
 				header("Location: usersetting.php");
-				
 				}
 				ob_end_flush();
-				
-				
-				
-				
 				?>
-                                
-                  
-            
 			 <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

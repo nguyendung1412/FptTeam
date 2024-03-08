@@ -80,10 +80,6 @@ if(!isset($_SESSION["user"]))
                     <li>
                         <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Đăng Xuất</a>
                     </li>
-                    
-
-
-                    
             </div>
 
         </nav>
@@ -114,7 +110,6 @@ if(!isset($_SESSION["user"]))
 								$app=$rows['approval'];
 								if($app=="Allowed")
 								{
-									
 								}
 						}
 						?>
@@ -168,12 +163,8 @@ if(!isset($_SESSION["user"]))
 								if(mysqli_query($con,$log))
 								{
 									echo '<script>alert("New Room Added") </script>' ;
-											
 								}
-								
 							}
-							
-								
 							?>
                           
                         </p>
@@ -182,10 +173,8 @@ if(!isset($_SESSION["user"]))
                 </div>
             </div>
                <?php
-				
 				$sql = "SELECT * FROM `contact`";
 				$re = mysqli_query($con,$sql);
-				
 			   ?>
             <div class="row">
                 <div class="col-md-12">
@@ -211,9 +200,7 @@ if(!isset($_SESSION["user"]))
 									<?php
 										while($row = mysqli_fetch_array($re))
 										{
-										
 											$id = $row['id'];
-											
 											if($id % 2 ==1 )
 											{
 												echo"<tr class='gradeC'>
@@ -237,13 +224,9 @@ if(!isset($_SESSION["user"]))
 													<td><a href=newsletter.php?eid=".$id." <button class='btn btn-primary'> <i class='fa fa-edit' ></i> Permission</button></td>
 													<td><a href=newsletterdel.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Delete </button></td>		
 												</tr>";
-											
 											}
-										
 										}
-										
 									?>
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -256,7 +239,6 @@ if(!isset($_SESSION["user"]))
                 <!-- /. ROW  -->
             
                 </div>
-               
             </div>
         
                
@@ -282,7 +264,6 @@ if(!isset($_SESSION["user"]))
     </script>
          <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
-    
-   
+
 </body>
 </html>

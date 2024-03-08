@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 10, 2020 at 06:23 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 07, 2024 lúc 03:37 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,67 +18,78 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sourcecodester_hoteldb`
+-- Cơ sở dữ liệu: `fptteam`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
+-- Cấu trúc bảng cho bảng `contact`
 --
 
 CREATE TABLE `contact` (
   `id` int(10) UNSIGNED NOT NULL,
   `fullname` varchar(100) DEFAULT NULL,
   `phoneno` int(10) DEFAULT NULL,
-  `email` text,
+  `email` text DEFAULT NULL,
   `cdate` date DEFAULT NULL,
   `approval` varchar(12) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `contact`
+--
+
+INSERT INTO `contact` (`id`, `fullname`, `phoneno`, `email`, `cdate`, `approval`) VALUES
+(7, 'ád', 0, 'abc@gmail.com', '2024-03-07', 'Not Allowed');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Cấu trúc bảng cho bảng `login`
 --
 
 CREATE TABLE `login` (
   `id` int(10) UNSIGNED NOT NULL,
   `usname` varchar(30) DEFAULT NULL,
-  `pass` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `pass` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `login`
+-- Đang đổ dữ liệu cho bảng `login`
 --
 
 INSERT INTO `login` (`id`, `usname`, `pass`) VALUES
-(1, 'janobe', 'janobe');
+(4, 'nguyendung', 'nguyendung');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `newsletterlog`
+-- Cấu trúc bảng cho bảng `newsletterlog`
 --
 
 CREATE TABLE `newsletterlog` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(52) DEFAULT NULL,
   `subject` varchar(100) DEFAULT NULL,
-  `news` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `news` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `newsletterlog`
+-- Đang đổ dữ liệu cho bảng `newsletterlog`
 --
 
 INSERT INTO `newsletterlog` (`id`, `title`, `subject`, `news`) VALUES
-(1, 'asd', 'Send me an Email', 'asd');
+(1, 'asd', 'Send me an Email', 'asd'),
+(2, 'ad', 'ad', 'ad'),
+(3, 'ad', 'ad', 'ad'),
+(4, 'ad', 'ad', 'ad'),
+(5, 'ad', 'ad', 'ad');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment`
+-- Cấu trúc bảng cho bảng `payment`
 --
 
 CREATE TABLE `payment` (
@@ -98,19 +108,20 @@ CREATE TABLE `payment` (
   `meal` varchar(30) DEFAULT NULL,
   `btot` double(8,2) DEFAULT NULL,
   `noofdays` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `payment`
+-- Đang đổ dữ liệu cho bảng `payment`
 --
 
 INSERT INTO `payment` (`id`, `title`, `fname`, `lname`, `troom`, `tbed`, `nroom`, `cin`, `cout`, `ttot`, `fintot`, `mepr`, `meal`, `btot`, `noofdays`) VALUES
-(2, 'Dr.', 'janobe', 'janobe', 'Superior Room', 'Single', 1, '2020-10-10', '2020-10-11', 320.00, 323.20, 0.00, 'Room only', 3.20, 1);
+(3, 'Miss.', 'Nguy?n', 'D?ng', 'Deluxe Room', 'Triple', 1, '2024-03-08', '2024-03-13', 1100.00, 1199.00, 66.00, 'Breakfast', 33.00, 5),
+(4, 'Mrs.', 'Dung', 'Nguyen', 'Single Room', 'Triple', 1, '2024-03-07', '2024-03-14', 1050.00, 1081.50, 0.00, 'Room only', 31.50, 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room`
+-- Cấu trúc bảng cho bảng `room`
 --
 
 CREATE TABLE `room` (
@@ -119,44 +130,43 @@ CREATE TABLE `room` (
   `bedding` varchar(10) DEFAULT NULL,
   `place` varchar(10) DEFAULT NULL,
   `cusid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `room`
+-- Đang đổ dữ liệu cho bảng `room`
 --
 
 INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`) VALUES
 (1, 'Superior Room', 'Single', 'Free', 0),
-(2, 'Superior Room', 'Double', 'Free', NULL),
 (3, 'Superior Room', 'Triple', 'Free', NULL),
 (4, 'Single Room', 'Quad', 'Free', NULL),
 (5, 'Superior Room', 'Quad', 'Free', NULL),
 (6, 'Deluxe Room', 'Single', 'Free', NULL),
 (7, 'Deluxe Room', 'Double', 'Free', NULL),
-(8, 'Deluxe Room', 'Triple', 'Free', NULL),
+(8, 'Deluxe Room', 'Triple', 'Free', 0),
 (9, 'Deluxe Room', 'Quad', 'Free', NULL),
 (10, 'Guest House', 'Single', 'Free', NULL),
 (11, 'Guest House', 'Double', 'Free', NULL),
 (12, 'Guest House', 'Quad', 'Free', NULL),
 (13, 'Single Room', 'Single', 'Free', NULL),
 (14, 'Single Room', 'Double', 'Free', NULL),
-(15, 'Single Room', 'Triple', 'Free', NULL);
+(15, 'Single Room', 'Triple', 'NotFree', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roombook`
+-- Cấu trúc bảng cho bảng `roombook`
 --
 
 CREATE TABLE `roombook` (
   `id` int(10) UNSIGNED NOT NULL,
   `Title` varchar(5) DEFAULT NULL,
-  `FName` text,
-  `LName` text,
+  `FName` text DEFAULT NULL,
+  `LName` text DEFAULT NULL,
   `Email` varchar(50) DEFAULT NULL,
   `National` varchar(30) DEFAULT NULL,
   `Country` varchar(30) DEFAULT NULL,
-  `Phone` text,
+  `Phone` text DEFAULT NULL,
   `TRoom` varchar(20) DEFAULT NULL,
   `Bed` varchar(10) DEFAULT NULL,
   `NRoom` varchar(2) DEFAULT NULL,
@@ -165,75 +175,82 @@ CREATE TABLE `roombook` (
   `cout` date DEFAULT NULL,
   `stat` varchar(15) DEFAULT NULL,
   `nodays` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Indexes for dumped tables
+-- Đang đổ dữ liệu cho bảng `roombook`
+--
+
+INSERT INTO `roombook` (`id`, `Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`, `stat`, `nodays`) VALUES
+(4, 'Mrs.', 'Dung', 'Nguyen', 'abc@gmail.com', 'Sri Lankan', 'Vietnam', 'asd', 'Single Room', 'Triple', '1', 'Room only', '2024-03-07', '2024-03-14', 'Conform', 7);
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `contact`
+-- Chỉ mục cho bảng `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `login`
+-- Chỉ mục cho bảng `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `newsletterlog`
+-- Chỉ mục cho bảng `newsletterlog`
 --
 ALTER TABLE `newsletterlog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `room`
+-- Chỉ mục cho bảng `room`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `roombook`
+-- Chỉ mục cho bảng `roombook`
 --
 ALTER TABLE `roombook`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `contact`
+-- AUTO_INCREMENT cho bảng `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `login`
+-- AUTO_INCREMENT cho bảng `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `newsletterlog`
+-- AUTO_INCREMENT cho bảng `newsletterlog`
 --
 ALTER TABLE `newsletterlog`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `room`
+-- AUTO_INCREMENT cho bảng `room`
 --
 ALTER TABLE `room`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `roombook`
+-- AUTO_INCREMENT cho bảng `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

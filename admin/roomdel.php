@@ -11,7 +11,6 @@ ob_start();
 include('db.php');
 $rsql ="select id from room";
 $rre=mysqli_query($con,$rsql);
-
 ?>
 							 
 <!DOCTYPE html>
@@ -77,16 +76,10 @@ $rre=mysqli_query($con,$rsql);
                     <li>
                         <a  class="active-menu" href="roomdel.php"><i class="fa fa-pencil-square-o"></i> Xóa phòng</a>
                     </li>
-					
-
-                    
             </div>
 
         </nav>
         <!-- /. NAV SIDE  -->
-       
-        
-       
         <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
@@ -122,8 +115,6 @@ $rre=mysqli_query($con,$rsql);
                                                 
                                             </select>
                               </div>
-							  
-								
 							 <input type="submit" name="del" value="Delete Room" class="btn btn-primary"> 
 							</form>
 							<?php
@@ -150,94 +141,87 @@ $rre=mysqli_query($con,$rsql);
                         
                     </div>
                 </div>
-                
-                  
            <?php
 						include ('db.php');
 						$sql = "select * from room";
 						$re = mysqli_query($con,$sql)
 				?>
                 <div class="row">
-				
-				
 				<?php
-										while($row= mysqli_fetch_array($re))
-										{
-												$id = $row['type'];
-											if($id == "Superior Room") 
-											{
-												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-blue'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-blue'>
-															".$row['type']."
+					while($row= mysqli_fetch_array($re))
+					{
+							$id = $row['type'];
+						if($id == "Superior Room") 
+						{
+							echo"<div class='col-md-3 col-sm-12 col-xs-12'>
+								<div class='panel panel-primary text-center no-boder bg-color-blue'>
+									<div class='panel-body'>
+										<i class='fa fa-users fa-5x'></i>
+										<h3>".$row['bedding']."</h3>
+									</div>
+									<div class='panel-footer back-footer-blue'>
+										".$row['type']."
 
-														</div>
-													</div>
-												</div>";
-											}
-											else if ($id == "Deluxe Room")
-											{
-												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-green'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-green'>
-															".$row['type']."
+									</div>
+								</div>
+							</div>";
+						}
+						else if ($id == "Deluxe Room")
+						{
+							echo"<div class='col-md-3 col-sm-12 col-xs-12'>
+								<div class='panel panel-primary text-center no-boder bg-color-green'>
+									<div class='panel-body'>
+										<i class='fa fa-users fa-5x'></i>
+										<h3>".$row['bedding']."</h3>
+									</div>
+									<div class='panel-footer back-footer-green'>
+										".$row['type']."
 
-														</div>
-													</div>
-												</div>";
-											
-											}
-											else if($id =="Guest House")
-											{
-												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-brown'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-brown'>
-															".$row['type']."
+									</div>
+								</div>
+							</div>";
+						
+						}
+						else if($id =="Guest House")
+						{
+							echo"<div class='col-md-3 col-sm-12 col-xs-12'>
+								<div class='panel panel-primary text-center no-boder bg-color-brown'>
+									<div class='panel-body'>
+										<i class='fa fa-users fa-5x'></i>
+										<h3>".$row['bedding']."</h3>
+									</div>
+									<div class='panel-footer back-footer-brown'>
+										".$row['type']."
 
-														</div>
-													</div>
-												</div>";
-											
-											}
-											else if($id =="Single Room")
-											{
-												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-red'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-red'>
-															".$row['type']."
+									</div>
+								</div>
+							</div>";
+						
+						}
+						else if($id =="Single Room")
+						{
+							echo"<div class='col-md-3 col-sm-12 col-xs-12'>
+								<div class='panel panel-primary text-center no-boder bg-color-red'>
+									<div class='panel-body'>
+										<i class='fa fa-users fa-5x'></i>
+										<h3>".$row['bedding']."</h3>
+									</div>
+									<div class='panel-footer back-footer-red'>
+										".$row['type']."
 
-														</div>
-													</div>
-												</div>";
-											
-											}
-										}
-									?>
+									</div>
+								</div>
+							</div>";
+						
+						}
+					}
+				?>
                     
                 </div>
             <?php
 				
 			ob_end_flush();
 			?>
-                    
-            
-				
 					</div>
 			 <!-- /. PAGE INNER  -->
             </div>

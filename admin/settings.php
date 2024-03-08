@@ -68,9 +68,6 @@ if(!isset($_SESSION["user"]))
                     <li>
                         <a   href="roomdel.php"><i class="fa fa-pencil-square-o"></i> Xóa phòng</a>
                     </li>
-					
-
-                    
             </div>
 
         </nav>
@@ -93,8 +90,6 @@ if(!isset($_SESSION["user"]))
 						$re = mysqli_query($con,$sql)
 				?>
                 <div class="row">
-				
-				
 				<?php
 										while($row= mysqli_fetch_array($re))
 										{
@@ -167,10 +162,6 @@ if(!isset($_SESSION["user"]))
                     
                 </div>
                 <!-- /. ROW  -->
-                
-                                
-                  
-            
 			 <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

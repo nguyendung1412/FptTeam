@@ -1,4 +1,4 @@
-﻿<?php  
+<?php  
 session_start();  
 if(!isset($_SESSION["user"]))
 {
@@ -254,9 +254,7 @@ if(!isset($_SESSION["user"]))
 								while($row=mysqli_fetch_array($fre) )
 								{
 										$f = $f + 1;
-								
 								}
-						
 								?>
                                 <div class="panel panel-danger">
                                     <div class="panel-heading">
